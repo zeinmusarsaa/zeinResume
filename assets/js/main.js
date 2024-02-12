@@ -245,3 +245,26 @@
   new PureCounter();
 
 })()
+
+// Handle form submission
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    fetch('./forms/contact.php', {
+        method: 'post',
+        body: formData
+    })
+    .then(response => response.json())  // Use response.json() instead of response.text()
+    .then(data => {
+        alert(data.message);  // Display the message from the JSON response
+        if (data.success) { // Check if the email was sent successfully
+          form.reset(); // Reset the form fields
+      }
+    })
+    .catch(() => {
+        alert("Oops! Something went wrong.");
+    });
+  });
+});

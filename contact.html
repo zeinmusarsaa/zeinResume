@@ -79,13 +79,6 @@
           <p>Feel free to contact me using the form below. I have also added my email and number for any other forms of communication you prefer.</p>
         </div>
 
-        <div class="col-lg-8 offset-lg-2">
-          <div class="alert alert-warning" role="alert">
-            Note: The form submission functionality is currently under development and not operational.
-          </div>
-        </div>
-      </div>
-
         <div class="row mt-5">
 
           <div class="col-lg-4">
@@ -113,7 +106,7 @@
           </div>
 
           <div class="col-lg-8 mt-5 mt-lg-0">
-            <form action="./forms/contact.php" method="post" role="form" class="php-email-form">
+            <form id="contactForm" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -130,8 +123,7 @@
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <div id="formMessage" class="error-message"></div>
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
